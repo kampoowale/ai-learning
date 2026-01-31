@@ -1,0 +1,13 @@
+import numpy as np
+
+array = np.array(
+    list(map(int, input("Enter numbers separated by space: ").split()))
+)
+print("All numbers", array)
+
+
+print("Even numbers : ", array[array % 2 == 0])
+
+print("Squres of numbers : ", array * array)
+
+print("Numbers greater than 10 : ", array[array > 10])
