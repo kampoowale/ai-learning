@@ -18,11 +18,8 @@ df["score_normalised"] = df["Score"] / max_score
 
 print("Added new column score_normalised", df)
 
-
-print("Students age between 22 to 24",
-      df[(df["Age"] <= 24) & (df["Age"] >= 22)])
-
 print("Students age between 22 to 24", df["Age"].between(22, 24))
+
 top_index = df["Score"].idxmax()
 print("Highest score name", df.loc[top_index,
       "Name"], df.loc[top_index, "Score"])

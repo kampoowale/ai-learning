@@ -15,4 +15,3 @@ print("Devisible by 3", array[array % 3 == 0])
 
 array[array < 0] = 0
 print("Replace negative numbers with zero : ", array)
-# [new_value for item in items if condition]

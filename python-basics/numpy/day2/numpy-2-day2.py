@@ -13,9 +13,9 @@ print("Mean : ", array.mean())
 
 print("Standard deviation : ", array.std())
 
-print("Numbers greater than mean", array[array > array.mean()])
+print("Numbers greater than mean : ", array[array > array.mean()])
 
-print("Numbers between 5 to 20 (inclusive)",
+print("Numbers between 5 to 20 (inclusive) : ",
       array[(array >= 5) & (array <= 20)])
 
 print("Not devisible by 2", array[array % 2 != 0])

@@ -4,4 +4,4 @@ total = 0
 for num in nums:
     total += num*num
 
-print("Total of squres of entered numbers ", total)
+print("Total of sqaures of entered numbers ", total)

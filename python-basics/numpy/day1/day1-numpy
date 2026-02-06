@@ -5,7 +5,6 @@ array = np.array(
 )
 print("All numbers", array)
 
-
 print("Even numbers : ", array[array % 2 == 0])
 
 print("Squres of numbers : ", array * array)

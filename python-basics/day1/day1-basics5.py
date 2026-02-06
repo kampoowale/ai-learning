@@ -1,22 +1,12 @@
 def get_even_numbers(nums):
     evenNums = []
 
-    for n in nums:
-        if n % 2 == 0:
-            evenNums.append(n)
-
     return [n for n in nums if n % 2 == 0]
 # [item for item in iterable if condition]
 
 
 def get_odd_nums(nums):
-    oddNums = []
-
-    for n in nums:
-        if (n % 2 != 0):
-            oddNums.append(n)
-
-    return oddNums
+    return [n for n in nums if n % 2 != 0]
 
 
 def count_positive_negative_zero(nums):
@@ -55,4 +45,4 @@ squres = get_squres(userNumbers)
 print("Even Numbers : ", evenNumbers)
 print("Odd Numbers : ", oddNumbers)
 print("Total positive negative and zeros : ", pos, neg, zero)
-print("Squeres : ", squres)
+print("Squres : ", squres)
