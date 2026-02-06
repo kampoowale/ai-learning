@@ -31,3 +31,6 @@ model.fit(X_train, y_train)
 prediction = model.predict(X_test)
 
 print("Prediction", X_test, prediction)
+
+accuracy = accuracy_score(y_test, prediction)
+print("Accuracy:", accuracy)
