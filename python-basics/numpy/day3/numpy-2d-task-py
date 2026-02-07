@@ -1,0 +1,17 @@
+import numpy as np
+
+arr = np.array([
+    [1, 2, 3],
+    [4, 6, 8],
+    [5, 7, 9]
+])
+
+print("first row", arr[0])
+print("second row", arr[1])
+print("third row", arr[2])
+print("first column", arr[:, 0])
+print("multiple array", arr * 2)
+
+
+for i in range(arr.shape[0]):
+    print(f"row {i}", arr[i])
