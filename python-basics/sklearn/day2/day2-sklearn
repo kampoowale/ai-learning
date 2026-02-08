@@ -1,0 +1,50 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+
+# Load and clean data
+df = pd.read_csv("data-students-score.csv")
+df = df.dropna(subset=["Age", "Score"])
+df = df.dropna(axis=1, how="all")
+
+# Features and target
+X = df[["Age", "Score"]]      # 2D features
+y = df["Score"] >= 70         # True/False target
+
+# Split and scale
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Train model
+model = LogisticRegression()
+model.fit(X_train_scaled, y_train)
+
+# Plot decision boundary
+# Create a grid of values
+x_min, x_max = X_train_scaled[:, 0].min() - 1, X_train_scaled[:, 0].max() + 1
+y_min, y_max = X_train_scaled[:, 1].min() - 1, X_train_scaled[:, 1].max() + 1
+xx, yy = np.meshgrid(np.linspace(x_min, x_max, 200),
+                     np.linspace(y_min, y_max, 200))
+
+# Predict on grid
+Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+
+# Plot contour
+plt.contourf(xx, yy, Z, alpha=0.3, cmap=plt.cm.RdYlBu)
+
+# Plot training points
+plt.scatter(X_train_scaled[:, 0], X_train_scaled[:, 1],
+            c=y_train, cmap=plt.cm.RdYlBu, edgecolors='k')
+plt.xlabel("Age (scaled)")
+plt.ylabel("Score (scaled)")
+plt.title("Logistic Regression Decision Boundary")
+plt.show()
