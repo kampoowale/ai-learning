@@ -1,3 +1,4 @@
+from sklearn.metrics import accuracy_score, confusion_matrix
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -5,27 +6,27 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 # Load data
 df = pd.read_csv("data-students-score.csv")
-print("DF", df)
+# print("DF", df)
 
 # Remove row if score is empty
 df = df.dropna(subset=["Score"])
-print("DF", df)
+# print("DF", df)
 
 # remove empty row
 df = df.dropna(how="all")
-print("DF", df)
+# print("DF", df)
 
 # remove empty column
 df = df.dropna(axis=1, how="all")
 
-print("DF", df)
+# print("DF", df)
 
 # Feature (X) and Target (y)
 X = df[["Age", "Score"]]      # 2D
 y = df["Score"] >= 70  # True/False
 
-print("Value of x : ", X)
-print("Calue of y : ", y)
+# print("Value of x : ", X)
+# print("Calue of y : ", y)
 
 # Split data
 X_train, X_test, y_train, y_test = train_test_split(
@@ -49,14 +50,14 @@ model.fit(X_train_scaled, y_train)
 # Predict
 y_pred = model.predict(X_test_scaled)
 
-# random = [[3, 6]]
-# prediction = model.predict(random)
+random = [[3, 6]]
+prediction = model.predict(random)
 # print("Prediction random data", prediction)
 
 
-print("Prediction : ", X_test, y_pred)
+# print("Prediction : ", X_test, y_pred)
 # Evaluate
-print("Accuracy:", accuracy_score(y_test, y_pred))
+# print("Accuracy:", accuracy_score(y_test, y_pred))
 
 test_cases = [
     [23, 56],  # low score false
@@ -65,4 +66,12 @@ test_cases = [
     [22, 69],  # borderline fail false
 ]
 X_test_scaled = scaler.transform([[3, 75]])
-print(model.predict(test_cases))
+# print(model.predict(test_cases))
+
+# Accuracy
+accuracy = accuracy_score(y_test, y_pred)
+# print("Test Accuracy:", accuracy)
+
+# Confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix: ", conf_matrix)
