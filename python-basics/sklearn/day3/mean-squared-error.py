@@ -1,3 +1,4 @@
+from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import confusion_matrix
@@ -31,13 +32,15 @@ model.fit(X_train_scaled, y_train)
 
 y_pred = model.predict(X_test_scaled)
 
-conf_matrix = confusion_matrix(y_test, y_pred)
-print('Confusion matrix', conf_matrix)
+mse = mean_squared_error(y_test, y_pred)
+print("MSE:", mse)
 
-precision = precision_score(y_test, y_pred)
-recall = recall_score(y_test, y_pred)
-f1 = f1_score(y_test, y_pred)
+# For example:
+# Actual values: [10, 5, 8]
+# Predicted values: [8, 5, 10]
+# Step-by-step:
+# Errors: [10−8, 5−5, 8−10] → [2, 0, -2]
+# Squared errors: [4, 0, 4]
+# MSE = (4 + 0 + 4)/3 = 8/3 ≈ 2.67
 
-print("F1-score:", f1)
-print("Precision:", precision)
-print("Recall:", recall)
+# Lower MSE → predictions are closer to actual values. lowest is 0

@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 # ---------------------------
-# 1️⃣ Load and clean data
+# Load and clean data
 # ---------------------------
 df = pd.read_csv("data-students-score.csv")
 
@@ -16,24 +16,24 @@ X = df[["Age", "Score"]]        # 2D features
 y = df["Score"] >= 70           # True/False target
 
 # ---------------------------
-# 2️⃣ Scale features
+# Scale features
 # ---------------------------
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 # ---------------------------
-# 3️⃣ Train model on all data
+# Train model on all data
 # ---------------------------
 model = LogisticRegression()
 model.fit(X_scaled, y)
 
 # ---------------------------
-# 4️⃣ Predict on the same data (since dataset is tiny)
+# Predict on the same data (since dataset is tiny)
 # ---------------------------
 y_pred = model.predict(X_scaled)
 
 # ---------------------------
-# 5️⃣ Evaluate
+# Evaluate
 # ---------------------------
 conf_matrix = confusion_matrix(y, y_pred)
 print("Confusion Matrix:\n", conf_matrix)
@@ -53,7 +53,7 @@ accuracy = accuracy_score(y, y_pred)
 print("Accuracy:", accuracy)
 
 # ---------------------------
-# 6️⃣ Predict random/new data
+# Predict random/new data
 # ---------------------------
 random_students = [
     [23, 56],  # low score

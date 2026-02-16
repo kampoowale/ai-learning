@@ -55,6 +55,14 @@ print("F1-score:", f1)
 print("Precision:", precision)
 print("Recall:", recall)
 
+
+# What does F1 = 0.67 mean?
+# The model is not terrible
+# But not reliable
+# It is biased toward catching passes, even at the cost of mistakes
+# In simple terms:
+# “The model prefers to be safe than sorry.”
+
 # Precision → “Can I trust PASS predictions?”
 # Recall → “Did I catch all PASS students?”
 
