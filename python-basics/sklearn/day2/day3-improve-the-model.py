@@ -35,7 +35,14 @@ conf_matrix = confusion_matrix(y_test, y_pred)
 print('Confusion matrix', conf_matrix)
 
 precision = precision_score(y_test, y_pred)
+
+# The recall is intuitively the ability of the classifier to find all the positive samples.
+# The best value is 1 and the worst value is 0.
+
+
 recall = recall_score(y_test, y_pred)
+
+# F1-score tells you how good your model really is when Precision and Recall disagree.
 f1 = f1_score(y_test, y_pred)
 
 print("F1-score:", f1)
@@ -44,3 +51,18 @@ print("Recall:", recall)
 
 
 # F1-score tells you how good your model really is when Precision and Recall disagree
+
+
+# Recall = 1
+# → “I caught all real True cases (even if I made mistakes)”
+# Precision
+# → “When I say True, how often am I correct?”
+# Precision means: out of all predicted True, how many were actually True
+# High precision = few wrong Trues (few false positives)
+
+# F1-score
+# → “Overall quality when I must balance Recall and Precision”
+
+# F1 in machine learning does not directly tell you how good your model is overall,
+# but it is a metric that combines precision and recall into a single number,
+# giving a sense of balance between them.

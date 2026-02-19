@@ -4,6 +4,7 @@
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import StandardScaler
 
 # Dataset
 X = [[1], [2], [3], [4], [5]]
@@ -20,6 +21,7 @@ print("Predictions:", y_pred)
 # Accuracy
 accuracy = accuracy_score(y, y_pred)
 print("Accuracy:", accuracy)
-
+xpred = model.predict_proba(X)
+print("Pridict", xpred)
 # Feature importance
 print("Feature importance:", model.feature_importances_)

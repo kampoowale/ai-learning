@@ -17,11 +17,7 @@ accuracy = accuracy_score(y, y_pred)
 print("Predictions:", y_pred)
 print("Accuracy:", accuracy)
 
-Z = [[10]]
-zResult = ["No"]
-Z_pred = model.predict(Z)
 
-# Evaluate
-accuracyZ = accuracy_score(zResult, Z_pred)
-print("Z Predictions:", Z_pred)
-print("Z Accuracy:", accuracyZ)
+# A decision tree looks at your input,
+# follows yes/no rules it learned from training, and gives the most likely answer.
+# in this example if you give [[6]] it will predict Yes
