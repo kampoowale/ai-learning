@@ -1,0 +1,6 @@
+Name,Age,Income,LoanAmount,CreditScore,PreviousDefaults,LoanApproved
+Alice,23,50000,18000,700,0,1
+Bob,25,80000,15000,650,1,0
+Charlie,22,60000,12000,720,0,1
+David,24,55000,13000,750,1,0
+Eva,23,65000,14000,650,0,1
