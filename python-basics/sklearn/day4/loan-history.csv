@@ -1,13 +1,4 @@
-"Name","Age","Score",""
-"Alice","23","85",""
-"Bob","25","92",""
-"Charlie","22","67",""
-"David","26","85",""
-"Rita","23","85",""
-"Qwd","23","89",""
-"Mood","23","85",""
-"jhd","23","21",""
-"dsyt","3","6",""
-"dus","2","12",""
-"diu","90","17",""
-"Rob","24","78",""
+Age	Income	LoanAmount	CreditScore	PreviousDefaults	LoanApproved
+25	50000	10000	700	0	1
+40	80000	15000	650	1	0
+30	60000	12000	720	0	1

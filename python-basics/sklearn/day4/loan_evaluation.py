@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
+import joblib
 
 # Load dataset from CSV
 df = pd.read_csv("loan.csv")
@@ -41,7 +42,26 @@ results = pd.DataFrame({
 })
 
 # Map 1/0 to decision
+
+# This replaces:
+# 1 → "Safe to give loan"
+# 0 → "Risky to give loan"
+
+
 results["Decision"] = results["PredictedApproval"].map(
     {1: "Safe to give loan", 0: "Risky to give loan"})
 
 print(results)
+
+# Save the trained model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train_scaled, y_train)
+
+# Save the trained model
+joblib.dump(model, "loan_model.pkl")
+
+# Save the scaler too
+joblib.dump(scaler, "scaler.pkl")
+
+model = joblib.load("loan_model.pkl")
+scaler = joblib.load("scaler.pkl")
